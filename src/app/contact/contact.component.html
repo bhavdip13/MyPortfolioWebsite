@@ -1,0 +1,133 @@
+<app-pageheader></app-pageheader>
+<!--================ Start Banner Area =================-->
+<section class="banner_area">
+  <div class="banner_inner d-flex align-items-center">
+    <div class="container">
+      <div class="banner_content text-center">
+        <h2>Contact Us</h2>
+        <div class="page_link">
+          <a roterLink="/home">Home</a>
+          <a routerLink="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================ End Banner Area =================-->
+
+
+
+<!-- ================ contact section start ================= -->
+<section class="section-margin">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <agm-map [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="contact-title">Get in Touch</h2>
+      </div>
+      <div class="col-lg-8 mb-4 mb-lg-0">
+          <!-- (ngSubmit)="form.valid && onSubmit()" -->
+            <form *ngIf="Isshowcontact" name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()" >
+          <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <textarea class="form-control w-100" formControlName="message" cols="30" rows="9"
+                    placeholder="Enter Message" [ngClass]="{'is-invalid':form.get('message').touched && form.get('message').invalid}" required></textarea>
+                  <div class="invalid-feedback">
+                <div>Message is required</div>
+              </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" placeholder="Enter Name" class="form-control" formControlName="name" [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').invalid}" required />
+                    <div class="invalid-feedback">
+                      <div>Name is required</div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Enter Email" type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+                    <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
+                      <div *ngIf="form.get('email').errors.required">Email is required</div>
+                      <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-4">
+             
+                <div class="form-group">
+                    <input placeholder="Enter Mobile No." type="text" class="form-control" formControlName="phone" [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}" required />
+                    <div class="invalid-feedback">
+                      <div>Mobile No. is required</div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <input placeholder="Enter Subject" type="text" class="form-control"  formControlName="subject" [ngClass]="{'is-invalid':form.get('subject').touched && form.get('subject').invalid}" />
+                    <div *ngIf="form.get('subject').touched && form.get('subject').invalid"  class="invalid-feedback">
+                      <div *ngIf="form.get('subject').errors.required">Subject is required</div>
+                    </div>
+                   
+                  </div>
+            </div>
+          </div>
+          <div class="form-group mt-lg-3">
+              <button type="submit" [disabled]="!form.valid" class="primary_btn button-form">Send Message</button>
+          </div>
+        </form>
+        <div class=content *ngIf="Isshowthanks">
+            <div class="wrapper-1">
+              <div class="wrapper-2">
+                <h1>Thank you {{user}}!</h1>
+                <p>Thank you for your inquiry.</p>
+                <p>you should receive a email soon...</p>
+                <a routerLink="/home"><button class="primary_btn button-form mt-4">
+                go home
+                </button></a>
+              </div>
+             
+          </div>
+          </div>
+          
+          <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
+      </div>
+
+      <div class="col-lg-4">
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="ti-home"></i></span>
+          <div class="media-body">
+            <h3>53, Vrajdham society, Motavarachha</h3>
+            <p>Surat, ST 394101</p>
+          </div>
+        </div>
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+          <div class="media-body">
+            <h3><a href="tel:454545654">98 (258) 91108</a></h3>
+            <p>Mon to Fri 9am to 6pm</p>
+          </div>
+        </div>
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="ti-email"></i></span>
+          <div class="media-body">
+            <h3><a href="mailto:talaviya.bhavdip@gmail.com">talaviya.bahvdip@gmail.com</a></h3>
+            <p>Send us your query anytime!</p>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>
+<!-- ================ contact section end ================= -->
