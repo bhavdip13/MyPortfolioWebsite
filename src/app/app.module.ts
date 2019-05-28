@@ -17,6 +17,7 @@ import { PortfolioDetailsComponent } from './portfolio-details/portfolio-details
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
  
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomepagefooterComponent,
     PageheaderComponent,
     ContactComponent,
-    PortfolioDetailsComponent
+    PortfolioDetailsComponent,
+    PagenotfoundComponent
     
   ],
   imports: [

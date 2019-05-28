@@ -8,6 +8,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { BlogComponent } from './blog/blog.component';
 import { BrandsComponent } from './brands/brands.component';
 import { ContactComponent } from './contact/contact.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {    
@@ -64,7 +65,14 @@ const routes: Routes = [
       title: 'Contact'    
     }    
   }, 
-  { path: '**', redirectTo: '/home' },
+  {    
+    path: 'pagenotfound',    
+    component: PagenotfoundComponent, 
+    data: {    
+      title: '404 Page not found'    
+    }    
+  }, 
+  { path: '**', redirectTo: '/pagenotfound' },
 ];
 
 @NgModule({
